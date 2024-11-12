@@ -1,16 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import HomePage from '../pages/HomePage';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomePage from "../pages/HomePage";
 
-const StackNav = createNativeStackNavigator();
+const StackNav = createStackNavigator();
 
 export default function HomeStackNav() {
-  return (
-    <StackNav.Navigator initialRouteName='HomePage'>
-        <StackNav.Screen name='HomePage' component={HomePage} />
-    </StackNav.Navigator>
-)
+	return (
+		<StackNav.Navigator initialRouteName='HomePage'>
+			<StackNav.Screen
+				name='HomePage'
+				component={HomePage}
+				options={{ headerTitle: () => <Text>Hi, DImash</Text> }}
+			/>
+		</StackNav.Navigator>
+	);
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
