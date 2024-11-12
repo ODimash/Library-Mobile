@@ -11,10 +11,11 @@ export default function HomeStackNav() {
 			<StackNav.Screen
 				name='HomePage'
 				component={HomePage}
-				options={{ headerTitle: () => <Text>Hi, DImash</Text> }}
+				options={{ headerTitle: "Home" }}
 			/>
 		</StackNav.Navigator>
 	);
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+});
