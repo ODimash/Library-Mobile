@@ -18,8 +18,9 @@ export default function HomePage() {
 				<Text style={styles.h2}>Which book would you like to read today?</Text>
 			</View>
 
-			{bookCarousels.map((item) => (
+			{bookCarousels.map((item, index) => (
 				<BooksCarousel
+					key={index}
 					label={item.label}
 					method={item.method}
 				/>

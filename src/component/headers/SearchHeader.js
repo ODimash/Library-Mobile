@@ -1,8 +1,10 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-export default function SearchHeader() {
+export default function SearchHeader({ setValue }) {
+	const textInputRef = useRef();
+
 	return (
 		<View style={styles.container}>
 			<AntDesign
@@ -10,14 +12,26 @@ export default function SearchHeader() {
 				size={24}
 				color='gray'
 			/>
-			<TextInput style={styles.searchBar} />
-			<AntDesign
-				name='closecircle'
-				size={24}
-				color='gray'
+			<TextInput
+				ref={textInputRef}
+				onEndEditing={(e) => setValue(e.nativeEvent.text)}
+				style={styles.searchBar}
+				placeholder='Search'
 			/>
+			<TouchableOpacity onPress={clearInput}>
+				<AntDesign
+					name='closecircle'
+					size={24}
+					color='silver'
+				/>
+			</TouchableOpacity>
 		</View>
 	);
+
+	function clearInput() {
+		setValue("");
+		textInputRef.current.clear();
+	}
 }
 
 const styles = StyleSheet.create({

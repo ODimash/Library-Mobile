@@ -8,7 +8,7 @@ import BookCard from "../component/BookCard";
  * @param {{label: string, method: ()=>Promise<Array<Book>>}} param0
  * @returns
  */
-export default function BooksCarousel({ label, method, key }) {
+export default function BooksCarousel({ label, method }) {
 	/** @type {[Book[], () => void]}*/
 	const [books, setBooks] = useState([]);
 	const [loading, setLoading] = useState(true);
