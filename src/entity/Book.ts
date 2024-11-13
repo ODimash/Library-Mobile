@@ -1,18 +1,18 @@
-import { Ganre } from "./Ganre";
+import { Genre } from "./Genre";
 
 export class Book {
     id: string;
     title: string;
     author: string;
     bookCover: string;
-    ganre: Ganre;
+    genre: Genre;
     rating: number;
 
 
-    // constructor(id: string, title: string, author: string, ganre: Ganre) {
+    // constructor(id: string, title: string, author: string, genre: Genre) {
     //     this.id = id;
     //     this.title = title;
     //     this.author = author;
-    //     this.ganre = ganre;
+    //     this.genre = genre;
     // }
 }

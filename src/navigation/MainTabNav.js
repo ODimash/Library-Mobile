@@ -2,11 +2,10 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomePage from "../pages/HomePage";
-import SearchPage from "../pages/SearchPage";
 import ProfilePage from "../pages/ProfilePage";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import HomeStackNav from "./HomeStackNav";
+import HomeStackNav from "./stacks/HomeStackNav";
+import SearchStackNav from "./stacks/SearchStackNav";
 const TabNav = createBottomTabNavigator();
 
 export default function MainTabNav() {
@@ -18,7 +17,7 @@ export default function MainTabNav() {
 			/>
 			<TabNav.Screen
 				name='book-search'
-				component={SearchPage}
+				component={SearchStackNav}
 			/>
 			<TabNav.Screen
 				name='account'

@@ -1,4 +1,4 @@
-export enum Ganre {
+export enum Genre {
     FANTASY,
     ACTION,
     MYSTERY,
