@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import SearchHeader from "../component/headers/SearchHeader";
 import LottieView from "lottie-react-native";
 import { BooksAPI } from "../api/BooksAPI";
+import FoundBooks from "../module/FoundBooks";
 
 export default function SearchPage() {
 	const booksAPI = new BooksAPI();
@@ -38,9 +39,7 @@ export default function SearchPage() {
 				styles={{ height: 100, width: 100 }}
 			/>
 			<Text>Search value: {value}</Text>
-			{foundBooks.map((item, index) => {
-				return <Text key={index}>{item.title}</Text>;
-			})}
+			<FoundBooks books={foundBooks} />
 		</View>
 	);
 }
