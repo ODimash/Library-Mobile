@@ -6,6 +6,7 @@ import ProfilePage from "../pages/ProfilePage";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import HomeStackNav from "./stacks/HomeStackNav";
 import SearchStackNav from "./stacks/SearchStackNav";
+import ProfileStackNav from "./stacks/ProfileStackNav";
 const TabNav = createBottomTabNavigator();
 
 export default function MainTabNav() {
@@ -21,7 +22,7 @@ export default function MainTabNav() {
 			/>
 			<TabNav.Screen
 				name='account'
-				component={ProfilePage}
+				component={ProfileStackNav}
 			/>
 		</TabNav.Navigator>
 	);
