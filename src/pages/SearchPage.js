@@ -25,7 +25,6 @@ export default function SearchPage() {
 			return;
 		}
 		console.log('new search value:', value)
-		setLoading(true);
 		booksAPI.findBooks(value).then(setFoundBooks).then(setLoading);
 	}, [value]);
 
