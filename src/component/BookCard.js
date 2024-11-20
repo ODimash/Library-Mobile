@@ -1,16 +1,17 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Book } from "../entity/Book";
-import { Genre } from "../entity/Genre";
+import { useNavigation } from "@react-navigation/native";
 
 /**
  *
- * @param {{book: Book}} param0
+ * @param {{book: Book}} param
  * @returns
  */
 const BookCard = ({ book }) => {
+	const nav = useNavigation();
 	return (
-		<View style={styles.container}>
+		<TouchableOpacity style={styles.container} onPress={() => nav.navigate('BookOverview', {book})}>
 			<Image
 				source={{ uri: book.bookCover }}
 				style={styles.cover}
@@ -26,7 +27,7 @@ const BookCard = ({ book }) => {
 				{book.title}
 			</Text>
 			{/* <Text>Genre: {Genre.ACTION}</Text> */}
-		</View>
+		</TouchableOpacity>
 	);
 };
 

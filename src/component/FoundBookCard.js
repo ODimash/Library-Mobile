@@ -31,7 +31,10 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: "row",
-		backgroundColor: "#ccc2b2",
+		backgroundColor: "#fff",
+		padding: 10,
+		borderRadius: 10,
+		elevation: 8,
 	},
 	imageContainer: {},
 	bookCover: {

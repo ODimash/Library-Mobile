@@ -3,54 +3,49 @@ import React, { useEffect, useRef, useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function SearchHeader({ setValue }) {
-	const textInputRef = useRef();
+  const textInputRef = useRef();
 
-	return (
-		<View style={styles.container}>
-			<AntDesign
-				name='search1'
-				size={24}
-				color='gray'
-			/>
-			<TextInput
-				ref={textInputRef}
-				onEndEditing={(e) => setValue(e.nativeEvent.text)}
-				style={styles.searchBar}
-				placeholder='Search'
-			/>
-			<TouchableOpacity onPress={clearInput}>
-				<AntDesign
-					name='closecircle'
-					size={24}
-					color='silver'
-				/>
-			</TouchableOpacity>
-		</View>
-	);
+  return (
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
+        <AntDesign name="search1" size={24} color="gray" />
+        <TextInput
+          ref={textInputRef}
+          onEndEditing={(e) => setValue(e.nativeEvent.text)}
+          style={styles.searchBar}
+          placeholder="Search"
+        />
+        <TouchableOpacity onPress={clearInput}>
+          <AntDesign name="closecircle" size={24} color="silver" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 
-	function clearInput() {
-		setValue("");
-		textInputRef.current.clear();
-	}
+  function clearInput() {
+    setValue("");
+    textInputRef.current.clear();
+    console.log("Clear button was pressed");
+  }
 }
 
 const styles = StyleSheet.create({
+  inputContainer: {
+    flexDirection: "row",
+    backgroundColor: "#f0f0f0",
+    alignItems: "center",
+    paddingVertical: 6,
+    marginBottom: 10,
+		marginHorizontal: 10,
+    borderRadius: 15,
+    paddingHorizontal: 10,
+  },
+  searchBar: {
+    flex: 1,
+  },
 	container: {
-		flex: 1,
-		marginRight: 30,
-		flexDirection: "row",
-		backgroundColor: "#f0f0f0",
-		alignItems: "center",
-		// borderWidth: 0.7,
-		borderRadius: 15,
-		borderColor: "gray",
-		paddingHorizontal: 10,
-	},
-	searchBar: {
-		padding: 7,
-
-		marginHorizontal: 5,
-		// width: "80%",
-		flex: 1,
-	},
+		justifyContent: 'flex-end',
+		backgroundColor: '#fff',
+		elevation: 2,
+	}
 });

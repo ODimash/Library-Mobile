@@ -5,7 +5,7 @@ import BookCard from "../component/BookCard";
 
 /**
  *
- * @param {{label: string, method: ()=>Promise<Array<Book>>}} param0
+ * @param {{label: string, method: ()=>Promise<Book[]>}} param0
  * @returns
  */
 export default function BooksCarousel({ label, method }) {
@@ -17,6 +17,7 @@ export default function BooksCarousel({ label, method }) {
 		setLoading(true);
 		method().then((b) => {
 			setBooks(b);
+			console.log('Found books:', b);
 			setLoading(false);
 		});
 	}, []);

@@ -15,8 +15,7 @@ export default function SearchPage() {
 
 	useEffect(() => {
 		navigation.setOptions({
-			headerTitle: () => <SearchHeader setValue={setValue} />,
-			headerTitleAlign: "center",
+			header: () => <SearchHeader setValue={setValue} />,
 		});
 	}, []);
 
@@ -25,7 +24,7 @@ export default function SearchPage() {
 			setFoundBooks([]);
 			return;
 		}
-
+		console.log('new search value:', value)
 		setLoading(true);
 		booksAPI.findBooks(value).then(setFoundBooks).then(setLoading);
 	}, [value]);
