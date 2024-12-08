@@ -24,7 +24,6 @@ export default function SearchPage() {
 			setFoundBooks([]);
 			return;
 		}
-		console.log('new search value:', value)
 		booksAPI.findBooks(value).then(setFoundBooks).then(setLoading);
 	}, [value]);
 
@@ -32,10 +31,7 @@ export default function SearchPage() {
 
 	return (
 		<View>
-			<LottieView
-				source={require("../assets/anim/cup.json")}
-				styles={{ height: 100, width: 100 }}
-			/>
+			<LottieView source={require("../assets/anim/cup.json")} styles={{ height: 100, width: 100 }} />
 			<Text>Search value: {value}</Text>
 			<FoundBooks books={foundBooks} />
 		</View>

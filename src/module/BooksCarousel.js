@@ -17,7 +17,6 @@ export default function BooksCarousel({ label, method }) {
 		setLoading(true);
 		method().then((b) => {
 			setBooks(b);
-			console.log('Found books:', b);
 			setLoading(false);
 		});
 	}, []);

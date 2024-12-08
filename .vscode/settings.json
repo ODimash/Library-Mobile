@@ -1,6 +1,6 @@
 {
 	"prettier.printWidth": 120,
-	"cSpell.words": ["Authorov"],
+	"cSpell.words": ["Authorov", "skyblue"],
 	"editor.tabSize": 2,
 	"editor.defaultFormatter": "esbenp.prettier-vscode"
 }
