@@ -19,7 +19,8 @@ export default function MainNavigation() {
 
 	async function checkAuth() {
 		try {
-			const token = Storage.token.getToken();
+			const token = await Storage.token.getToken();
+			console.log("token", token);
 			setSigned(token ? true : false);
 		} catch (error) {
 			setSigned(false);

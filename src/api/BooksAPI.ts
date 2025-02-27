@@ -23,4 +23,8 @@ export class BooksAPI {
 	findBooks = async (text: string): Promise<Book[]> => {
 		return this.bookList;
 	};
+
+	createBook = async (book: Book): Promise<Book> => {
+		return book;
+	};
 }

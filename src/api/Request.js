@@ -62,3 +62,43 @@ function addRequestParams(params, url) {
 	}
 	return url;
 }
+/**
+ *
+ * @param {string} method HTTP request type
+ * @param {string} api endpoint
+ * @param {Object} params request parameters
+ * @param {FormData} formData request body as FormData
+ * @param {boolean} auth include authorization token
+ * @returns {Promise<Object>}
+ */
+export async function sendFileRequest(method, api, params = null, formData = null, auth = true) {
+	try {
+		const accessToken = auth ? await getAccessToken() : "";
+		console.log("user access token:", accessToken);
+		const url = addRequestParams(params, SERVER_URL + api);
+		logger.info(`Request to ${url} was started`);
+		const response = await fetchingFile(url, method, accessToken, formData);
+
+		if (!response.ok) throw new Error(`Request to ${url} failed. Response code: ${response.status}`);
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		logger.error(`Failed to send request to URL ${api}:`, error);
+	} finally {
+		logger.info(`Executed request to API ${api} with params:`, params);
+	}
+}
+
+async function fetchingFile(url, method, accessToken, formData) {
+	const options = {
+		method,
+		headers: {
+			Accept: "*/*",
+			Authorization: `Bearer ${accessToken}`,
+		},
+		body: formData,
+	};
+
+	return await fetch(url, options);
+}
